@@ -1,0 +1,25 @@
+flowchart LR
+    subgraph Data["Data layer"]
+        CSV[("CSV files\nusers / orders\nevents / products")]
+        GEN["generate_data.py\n(synthetic generator)"]
+        DL["data_loader.py\nDataSource abstraction\n(CSV today, SQLite later)"]
+        GEN --> CSV --> DL
+    end
+
+    subgraph Logic["Analytics layer (pure functions)"]
+        MET["metrics.py\nKPIs · funnel · retention\nchurn · RFM · sales"]
+        REC["recommendations.py\nranked insights"]
+        DL --> MET --> REC
+    end
+
+    subgraph UI["Presentation layer (Streamlit)"]
+        APP["app.py\nExecutive Overview"]
+        PAGES["pages/\nFunnel · Traffic · Retention\nProducts · Segments · Recs"]
+        CH["charts.py\nshared styling"]
+    end
+
+    MET --> APP
+    MET --> PAGES
+    REC --> PAGES
+    CH --> APP
+    CH --> PAGES
