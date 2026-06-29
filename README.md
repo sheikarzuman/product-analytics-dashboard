@@ -192,3 +192,16 @@ Python 3.12+ · Pandas · Streamlit · Plotly · pytest · (SQLite-ready data la
 ## 📄 License
 
 MIT — synthetic data, for portfolio/demo use.
+
+## 🖼️ Dashboard preview
+
+| | |
+|---|---|
+| **Executive Overview** | **Conversion Funnel** |
+| ![Overview](screenshots/overview.png) | ![Funnel](screenshots/funnel.png) |
+| **Traffic Sources** | **Retention & Churn** |
+| ![Traffic](screenshots/traffic.png) | ![Retention](screenshots/retention.png) |
+| **Product & Category Sales** | **Customer Segmentation** |
+| ![Products](screenshots/products.png) | ![Segments](screenshots/segments.png) |
+| **Recommendations & Insights** | |
+| ![Recommendations](screenshots/recommendations.png) | |

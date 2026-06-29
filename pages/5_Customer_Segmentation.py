@@ -34,7 +34,7 @@ fig_seg = px.bar(
     labels={"customers": "Customers", "segment": ""},
 )
 fig_seg.update_traces(marker_color="#8b5cf6")
-left.plotly_chart(fig_seg, use_container_width=True)
+left.plotly_chart(fig_seg)
 
 fig_val = px.bar(
     summary.sort_values("total_revenue"), x="total_revenue", y="segment", orientation="h",
@@ -42,7 +42,7 @@ fig_val = px.bar(
     labels={"total_revenue": "Revenue ($)", "segment": ""},
 )
 fig_val.update_traces(marker_color="#f59e0b")
-right.plotly_chart(fig_val, use_container_width=True)
+right.plotly_chart(fig_val)
 
 st.divider()
 st.subheader("Segment scorecard")
@@ -53,7 +53,7 @@ st.dataframe(
     disp.rename(columns={"segment": "Segment", "customers": "Customers",
                          "avg_monetary": "Avg value", "total_revenue": "Revenue",
                          "revenue_share_%": "Revenue %"}),
-    use_container_width=True, hide_index=True,
+    width='stretch', hide_index=True,
 )
 
 with st.expander("What do the segments mean?"):

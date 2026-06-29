@@ -30,7 +30,7 @@ fig_rpv = px.bar(
 )
 fig_rpv.update_traces(marker_color="#6366f1")
 fig_rpv.update_layout(yaxis={"categoryorder": "total ascending"})
-c1.plotly_chart(fig_rpv, use_container_width=True)
+c1.plotly_chart(fig_rpv)
 
 fig_sr = px.bar(
     perf.sort_values("signup_rate_%"), x="signup_rate_%", y="channel", orientation="h",
@@ -38,7 +38,7 @@ fig_sr = px.bar(
     title="Signup rate",
 )
 fig_sr.update_traces(marker_color="#10b981")
-c2.plotly_chart(fig_sr, use_container_width=True)
+c2.plotly_chart(fig_sr)
 
 st.divider()
 st.subheader("Channel scorecard")
@@ -52,4 +52,4 @@ display = display.rename(columns={
     "signup_rate_%": "Signup %", "visit_to_paid_%": "Visit→Paid %",
     "aov": "AOV", "revenue_per_visitor": "Rev/Visitor",
 })
-st.dataframe(display, use_container_width=True, hide_index=True)
+st.dataframe(display, width='stretch', hide_index=True)

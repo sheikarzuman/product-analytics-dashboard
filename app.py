@@ -52,12 +52,12 @@ def render_trends() -> None:
 
     fig_rev = area(weekly_revenue(orders), "week", "revenue", title="Revenue by week",
                    labels={"week": "", "revenue": "Revenue ($)"})
-    left.plotly_chart(fig_rev, use_container_width=True)
+    left.plotly_chart(fig_rev)
 
     fig_sign = vertical_bar(weekly_signups(users), "week", "signups",
                             title="Signups by week",
                             labels={"week": "", "signups": "Signups"})
-    right.plotly_chart(fig_sign, use_container_width=True)
+    right.plotly_chart(fig_sign)
 
 
 def render_channel_mix() -> None:
@@ -66,7 +66,7 @@ def render_channel_mix() -> None:
     fig = horizontal_bar(revenue_by_channel(orders), "revenue", "channel",
                          color=COLORS["indigo"],
                          labels={"revenue": "Revenue ($)", "channel": ""})
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig)
 
 
 def main() -> None:

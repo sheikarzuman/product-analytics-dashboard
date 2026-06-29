@@ -30,7 +30,7 @@ fig_cat = px.pie(
     cats, values="revenue", names="category", template="plotly_white",
     title="Revenue share by category", hole=0.45,
 )
-left.plotly_chart(fig_cat, use_container_width=True)
+left.plotly_chart(fig_cat)
 
 top10 = prods.head(10).sort_values("revenue")
 fig_top = px.bar(
@@ -38,7 +38,7 @@ fig_top = px.bar(
     title="Top 10 products by revenue", labels={"revenue": "Revenue ($)", "product_name": ""},
 )
 fig_top.update_traces(marker_color="#0ea5e9")
-right.plotly_chart(fig_top, use_container_width=True)
+right.plotly_chart(fig_top)
 
 st.divider()
 st.subheader("Category scorecard")
@@ -47,7 +47,7 @@ cat_disp["revenue"] = cat_disp["revenue"].map(format_currency)
 st.dataframe(
     cat_disp.rename(columns={"category": "Category", "revenue": "Revenue", "units": "Units",
                              "orders": "Orders", "revenue_share_%": "Revenue %"}),
-    use_container_width=True, hide_index=True,
+    width='stretch', hide_index=True,
 )
 
 st.subheader("All products")
@@ -56,5 +56,5 @@ prod_disp["revenue"] = prod_disp["revenue"].map(format_currency)
 st.dataframe(
     prod_disp.rename(columns={"product_name": "Product", "category": "Category",
                               "revenue": "Revenue", "units": "Units", "orders": "Orders"}),
-    use_container_width=True, hide_index=True,
+    width='stretch', hide_index=True,
 )

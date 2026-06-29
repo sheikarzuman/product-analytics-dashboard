@@ -35,7 +35,7 @@ fig = go.Figure(
     )
 )
 fig.update_layout(template="plotly_white", margin=dict(t=10, b=10))
-left.plotly_chart(fig, use_container_width=True)
+left.plotly_chart(fig)
 
 with right:
     st.subheader("Step conversion")
@@ -61,10 +61,10 @@ fig2 = px.bar(
     labels={"visit_to_purchase_%": "Visit → Purchase (%)", "channel": ""},
 )
 fig2.update_traces(marker_color="#1d4ed8", texttemplate="%{text:.2f}%")
-st.plotly_chart(fig2, use_container_width=True)
+st.plotly_chart(fig2)
 
 st.dataframe(
     by_ch.rename(columns={"visit_to_purchase_%": "Visit→Purchase %",
                           "signup_to_purchase_%": "Signup→Purchase %"}),
-    use_container_width=True, hide_index=True,
+    width='stretch', hide_index=True,
 )

@@ -48,7 +48,7 @@ fig_curve = px.line(
     title="Average retention curve", labels={"week_index": "Weeks since signup", "retention_%": "Retention (%)"},
 )
 fig_curve.update_traces(line_color="#2563eb")
-left.plotly_chart(fig_curve, use_container_width=True)
+left.plotly_chart(fig_curve)
 
 # ---- Churn by channel ------------------------------------------------------ #
 cbc = churn_by_channel(users, churn_days=churn_days)
@@ -58,7 +58,7 @@ fig_cbc = px.bar(
     labels={"churn_rate_%": "Churn rate (%)", "channel": ""},
 )
 fig_cbc.update_traces(marker_color="#ef4444")
-right.plotly_chart(fig_cbc, use_container_width=True)
+right.plotly_chart(fig_cbc)
 
 st.divider()
 
@@ -78,7 +78,7 @@ fig_hm = go.Figure(
 )
 fig_hm.update_layout(template="plotly_white", height=max(400, 18 * len(ret)),
                      yaxis={"title": "Signup cohort"}, xaxis={"title": "Weeks since signup"})
-st.plotly_chart(fig_hm, use_container_width=True)
+st.plotly_chart(fig_hm)
 
 st.divider()
 
@@ -92,4 +92,4 @@ disp = disp.rename(columns={
     "user_id": "User", "channel": "Channel", "country": "Country",
     "days_inactive": "Days inactive", "lifetime_revenue": "Lifetime revenue",
 })
-st.dataframe(disp, use_container_width=True, hide_index=True)
+st.dataframe(disp, width='stretch', hide_index=True)
